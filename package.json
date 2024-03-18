@@ -1,0 +1,33 @@
+{
+  "name": "dcc-server-tester",
+  "version": "1.0.0",
+  "description": "A server to process media submitted to lightover",
+  "main": "dist/ index.js",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "test": "artillery run test.yml"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/digitalcredentials/dcc-server-tester.git"
+  },
+  "author": "Jackson Morgan",
+  "license": "LGPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/digitalcredentials/dcc-server-tester/issues"
+  },
+  "homepage": "https://github.com/digitalcredentials/dcc-server-tester#readme",
+  "devDependencies": {
+    "@types/artillery": "^1.7.4",
+    "@typescript-eslint/eslint-plugin": "^6.18.1",
+    "@typescript-eslint/parser": "^6.18.1",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.1.3",
+    "prettier": "^3.1.1",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.3.3"
+  }
+}

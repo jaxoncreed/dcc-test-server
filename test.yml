@@ -1,0 +1,17 @@
+config:
+  target: "https://example.com"
+  processor: "./dist/customFunctions.js"
+before:
+  flow:
+    - function: "loadEnvironmentVariable"
+scenarios:
+  - flow:
+    - log: "This is the thing {{emailedUrl}}"
+    - get:
+        url: "{{ emailedUrl }}"
+        capture:
+          - regexp: '.*'
+            as: plainTextResponse
+    - function: "processResult"
+    - get:
+        url: "https://example.org/"
