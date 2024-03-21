@@ -6,7 +6,6 @@ before:
     - function: "loadEnvironmentVariable"
 scenarios:
   - flow:
-    - log: "This is the thing {{emailedUrl}}"
     - get:
         url: "{{ emailedUrl }}"
         # capture:
@@ -20,3 +19,9 @@ scenarios:
           json: "$.links[0].directDeepLink"
           as: "directDeepLink"
     - function: "processDirectDeepLink"
+    - post:
+        url: "{{ lcwUrl }}"
+        body: "{{ didAuth }}"
+        headers:
+          content-type: application/json
+        

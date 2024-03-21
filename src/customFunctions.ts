@@ -1,5 +1,7 @@
+import "./lcwMock/pollyfill";
 import type { ActionFn, Next, ScenarioContext, EventEmitter } from "artillery";
 import { URL } from "url";
+import { mockLCW } from "./lcwMock";
 
 export const loadEnvironmentVariable: ActionFn = (
   context: ScenarioContext,
@@ -25,11 +27,12 @@ export const loadEnvironmentVariable: ActionFn = (
   }
 };
 
-export const processDirectDeepLink: ActionFn = (
+export const processDirectDeepLink = async (
   context: ScenarioContext,
-  _ee: EventEmitter,
-  next: Next,
-) => {
-  console.log("Direct Deep Link", context.vars.directDeepLink);
-  next();
+): Promise<void> => {
+  const [lcwUrl, didAuth] = await mockLCW(
+    context.vars.directDeepLink as string,
+  );
+  context.vars.lcwUrl = lcwUrl;
+  context.vars.didAuth = didAuth;
 };

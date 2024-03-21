@@ -29,5 +29,11 @@
     "ts-node": "^10.9.2",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "@digitalcredentials/ed25519-signature-2020": "^4.0.0",
+    "@digitalcredentials/ed25519-verification-key-2020": "^4.0.0",
+    "@digitalcredentials/security-document-loader": "^5.0.0",
+    "@digitalcredentials/vc": "^7.0.0"
   }
 }
