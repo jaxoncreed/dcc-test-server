@@ -9,9 +9,14 @@ scenarios:
     - log: "This is the thing {{emailedUrl}}"
     - get:
         url: "{{ emailedUrl }}"
-        capture:
-          - regexp: '.*'
-            as: plainTextResponse
-    - function: "processResult"
+        # capture:
+        #   - regexp: '.*'
+        #     as: plainTextResponse
     - get:
-        url: "https://example.org/"
+        url: "{{ dashboardLinkUrl }}"
+        headers:
+          authorization: "{{ token }}"
+        capture:
+          json: "$.links[0].directDeepLink"
+          as: "directDeepLink"
+    - function: "processDirectDeepLink"
