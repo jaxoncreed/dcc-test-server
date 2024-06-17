@@ -17,7 +17,11 @@ export const loadEnvironmentVariable: ActionFn = (
     const token = emailedUrl.searchParams.get("token");
     if (!token) throw new Error("The URL must have a token.");
     context.vars.token = `Bearer ${token}`;
-    const dashboardLinkUrl = new URL(emailedUrl);
+    // TODO swap back because it is not always the case that this is an emailed
+    // url
+    // const dashboardLinkUrl = new URL(emailedUrl);
+    // const dashboardLinkUrl = new URL("http://localhost:3000");
+    const dashboardLinkUrl = new URL("http://dashboard.dcconsortium.org");
     dashboardLinkUrl.pathname = "/api/get-credential-links";
     dashboardLinkUrl.search = "";
     context.vars.dashboardLinkUrl = dashboardLinkUrl.toString();

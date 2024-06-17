@@ -1,6 +1,9 @@
 config:
   target: "https://example.com"
-  processor: "./dist/customFunctions.js"
+  processor: "./bundle/bundle.js"
+  phases:
+    - duration: 1
+      arrivalRate: 1
 before:
   flow:
     - function: "loadEnvironmentVariable"
@@ -8,9 +11,6 @@ scenarios:
   - flow:
     - get:
         url: "{{ emailedUrl }}"
-        # capture:
-        #   - regexp: '.*'
-        #     as: plainTextResponse
     - get:
         url: "{{ dashboardLinkUrl }}"
         headers:

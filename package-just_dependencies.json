@@ -19,5 +19,11 @@
   "bugs": {
     "url": "https://github.com/digitalcredentials/dcc-server-tester/issues"
   },
-  "homepage": "https://github.com/digitalcredentials/dcc-server-tester#readme"
+  "homepage": "https://github.com/digitalcredentials/dcc-server-tester#readme",
+  "dependencies": {
+    "@digitalcredentials/ed25519-signature-2020": "^4.0.0",
+    "@digitalcredentials/ed25519-verification-key-2020": "^4.0.0",
+    "@digitalcredentials/security-document-loader": "^5.0.0",
+    "@digitalcredentials/vc": "^7.0.0"
+  }
 }
